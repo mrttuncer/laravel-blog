@@ -54,7 +54,9 @@ class AdminBlogController extends Controller
      * Display the specified resource.
      */
     public function show(Blog $blog)
+
     {
+        $blog->load('categories');
         return inertia('Admin/Blogs/Show', compact('blog'));
     }
 
@@ -90,8 +92,10 @@ class AdminBlogController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Blog $blog)
     {
-        //
+        $blog->delete();
+
+        return redirect()->route('blogs.index')->with('success', 'Blog başarıyla silindi.');
     }
 }

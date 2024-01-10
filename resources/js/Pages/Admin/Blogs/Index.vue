@@ -26,7 +26,8 @@ const props = defineProps({
                     <td class="py-2 px-4 border-b text-center">
                         <ul class="list-disc list-inside">
                             <li v-for="category in blog.categories" :key="category.id">
-                                {{ category.name }}
+                                <Link :href="route('categories.show', category.id)" class="text-cyan-400">{{ category.name
+                                }}</Link>
                             </li>
                         </ul>
                     </td>
