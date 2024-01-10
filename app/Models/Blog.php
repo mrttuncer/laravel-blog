@@ -10,18 +10,12 @@ class Blog extends Model
     use HasFactory;
 
     protected $fillable = [
-        'category_id',
         'title',
         'content',
     ];
 
-    public function user()
+    public function categories()
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
+        return $this->belongsToMany(Category::class);
     }
 }

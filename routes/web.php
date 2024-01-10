@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCategoryController;
 
 /*
@@ -41,6 +42,7 @@ Route::middleware([
     Route::get('/categories/{category}/edit', [AdminCategoryController::class, 'edit'])->name('categories.edit');
     Route::put('/categories/{category}', [AdminCategoryController::class, 'update'])->name('categories.update');
     Route::delete('/categories/{category}', [AdminCategoryController::class, 'destroy'])->name('categories.destroy');
+    Route::resource('/blogs', AdminBlogController::class);
 });
 Route::middleware(['auth'])->prefix('admin')->group(function () {
 });
