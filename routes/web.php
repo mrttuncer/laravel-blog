@@ -3,7 +3,6 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
-use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCategoryController;
 
@@ -27,16 +26,14 @@ Route::get('/', function () {
     ]);
 });
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
+Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    Route::resource('/blogs', AdminBlogController::class);
-    Route::resource('/categories', AdminCategoryController::class);
-});
-Route::middleware(['auth'])->prefix('admin')->group(function () {
+
+
+    Route::middleware('admin')->group(function () {
+        Route::resource('/blogs', AdminBlogController::class);
+        Route::resource('/categories', AdminCategoryController::class);
+    });
 });
