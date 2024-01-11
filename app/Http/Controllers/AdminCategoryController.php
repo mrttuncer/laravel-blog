@@ -21,6 +21,7 @@ class AdminCategoryController extends Controller
 
     public function show(Category $category)
     {
+        $category->load('blogs');
         return inertia('Admin/Categories/Show', compact('category'));
     }
 
