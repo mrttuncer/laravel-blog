@@ -32,7 +32,9 @@ const props = defineProps({
                     </td>
                     <td class="py-2 px-4 border-b text-center">
 
-                        <Link :href="route('customer-blogs.show', blog.id)" class="text-green-500">Detay Görüntüle</Link>
+                        <Link :href="route('customer-blogs.show', blog.id)" class="text-green-500">Detay Görüntüle
+
+                        </Link>
                     </td>
                 </tr>
             </tbody>

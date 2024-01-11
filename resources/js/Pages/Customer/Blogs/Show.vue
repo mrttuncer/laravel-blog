@@ -1,6 +1,5 @@
 <script setup>
-import { defineProps, ref } from 'vue';
-import { Link, useForm } from '@inertiajs/vue3';
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
     blog: Object,

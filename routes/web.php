@@ -31,7 +31,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
-    Route::resource('/customer-blogs', CustomerBlogController::class)->only(['index', 'show']);
+    Route::get('/customer-blogs/{blog}', [CustomerBlogController::class, 'show'])->name('customer-blogs.show');
+    Route::get('/customer-blogs', [CustomerBlogController::class, 'index'])->name('customer-blogs.index');
 
     Route::middleware('admin')->group(function () {
         Route::resource('/blogs', AdminBlogController::class);
