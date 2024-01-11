@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CustomerBlogController extends Controller
 {
@@ -37,10 +38,12 @@ class CustomerBlogController extends Controller
      * Display the specified resource.
      */
     public function show(Blog $blog)
-
     {
         $blog->load('categories');
-        return inertia('Customer/Blogs/Show', compact('blog'));
+
+        $userLiked = Auth::check() ? Auth::user()->likes()->where('blog_id', $blog->id)->exists() : false;
+
+        return inertia('Customer/Blogs/Show', compact('blog', 'userLiked'));
     }
 
     /**

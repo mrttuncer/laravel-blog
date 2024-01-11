@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\CustomerBlogController;
+use App\Http\Controllers\LikeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,11 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('dashboard');
     Route::get('/customer-blogs/{blog}', [CustomerBlogController::class, 'show'])->name('customer-blogs.show');
     Route::get('/customer-blogs', [CustomerBlogController::class, 'index'])->name('customer-blogs.index');
+
+
+    Route::post('/blogs/{blog}/like', [LikeController::class, 'like'])->name('like');
+    Route::delete('/blogs/{blog}/unlike', [LikeController::class, 'unlike'])->name('unlike');
+
 
     Route::middleware('admin')->group(function () {
         Route::resource('/blogs', AdminBlogController::class);

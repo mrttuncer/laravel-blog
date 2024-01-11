@@ -68,4 +68,8 @@ class User extends Authenticatable
     {
         return $this->role === 'admin';
     }
+    public function likes()
+    {
+        return $this->hasMany(Like::class);
+    }
 }
