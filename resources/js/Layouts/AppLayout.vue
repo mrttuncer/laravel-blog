@@ -55,11 +55,17 @@ const logout = () => {
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </NavLink>
-                                <NavLink :href="route('blogs.index')" :active="route().current('blogs.index')">
-                                    Bloglar
-                                </NavLink>
-                                <NavLink :href="route('categories.index')" :active="route().current('categories.index')">
-                                    Kategoriler
+                                <NavLink
+                                    :href="$page.props.auth.user.role == 'admin' ? route('blogs.index') : route('customer-blogs.index')"
+                                    :active="$page.props.auth.user.role == 'admin' ? route().current('blogs.index') : route().current('customer-blog.index')">
+                                    Bloglar </NavLink>
+                                <NavLink
+                                    :href="$page.props.auth.user.role == 'admin' ? route('categories.index') : route('customer-categories.index')"
+                                    :active="$page.props.auth.user.role == 'admin' ? route().current('categories.index') : route().current('customer-blog.index')">
+                                    Kategoriler </NavLink>
+                                <NavLink :href="route('users')" :active="route().current('users')"
+                                    v-if="$page.props.auth.user.role == 'admin'">
+                                    Kullanıcılar
                                 </NavLink>
                             </div>
                         </div>
@@ -109,7 +115,8 @@ const logout = () => {
                                                     Switch Teams
                                                 </div>
 
-                                                <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
+                                                <template v-for="   team    in    $page.props.auth.user.all_teams   "
+                                                    :key="team.id">
                                                     <form @submit.prevent="switchToTeam(team)">
                                                         <DropdownLink as="button">
                                                             <div class="flex items-center">
@@ -284,7 +291,7 @@ const logout = () => {
                                         Switch Teams
                                     </div>
 
-                                    <template v-for="team in $page.props.auth.user.all_teams" :key="team.id">
+                                    <template v-for="   team    in    $page.props.auth.user.all_teams   " :key="team.id">
                                         <form @submit.prevent="switchToTeam(team)">
                                             <ResponsiveNavLink as="button">
                                                 <div class="flex items-center">

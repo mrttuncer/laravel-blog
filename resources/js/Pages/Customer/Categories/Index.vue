@@ -1,6 +1,6 @@
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import CustomerAppLayout from '@/Layouts/CustomerAppLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const props = defineProps({
     categories: Array,
@@ -8,7 +8,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <CustomerAppLayout title="Kategoriler">
+    <AppLayout title="Kategoriler">
         <div class="max-w-2xl mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
             <h1 class="text-2xl font-bold mb-6">Kategoriler</h1>
             <ul>
@@ -23,5 +23,5 @@ const props = defineProps({
                 </li>
             </ul>
         </div>
-    </CustomerAppLayout>
+    </AppLayout>
 </template>

@@ -1,7 +1,7 @@
 <script setup>
 import { defineProps } from 'vue';
 import { Link, useForm } from '@inertiajs/vue3';
-import CustomerAppLayout from '@/Layouts/CustomerAppLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const props = defineProps({
     category: Object,
@@ -9,7 +9,7 @@ const props = defineProps({
 </script>
 
 <template>
-    <CustomerAppLayout title="Kategori Görüntüle">
+    <AppLayout title="Kategori Görüntüle">
         <div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-md shadow-md">
             <h1 class="text-2xl font-bold mb-6">Kategori Detayı</h1>
             <ul class="mb-6">
@@ -35,5 +35,5 @@ const props = defineProps({
                 </ul>
             </div>
         </div>
-    </CustomerAppLayout>
+    </AppLayout>
 </template>

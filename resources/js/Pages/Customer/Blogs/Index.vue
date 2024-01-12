@@ -1,13 +1,13 @@
 
 <script setup>
 import { Link } from '@inertiajs/vue3';
-import CustomerAppLayout from '@/Layouts/CustomerAppLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 const props = defineProps({
     blogs: Array,
 });
 </script>
 <template>
-    <CustomerAppLayout title="Bloglar">
+    <AppLayout title="Bloglar">
         <div class="w-4/5 mx-auto">
             <h1 class="text-2xl font-bold mb-4">Blog Yazıları</h1>
             <table class="min-w-full bg-white border border-gray-300">
@@ -43,6 +43,6 @@ const props = defineProps({
                 </tbody>
             </table>
         </div>
-    </CustomerAppLayout>
+    </AppLayout>
 </template>
 

@@ -2,7 +2,7 @@
 import { defineProps, ref } from 'vue';
 import { Link } from '@inertiajs/vue3';
 import axios from 'axios';
-import CustomerAppLayout from '@/Layouts/CustomerAppLayout.vue';
+import AppLayout from '@/Layouts/AppLayout.vue';
 
 const props = defineProps({
     blog: Object,
@@ -31,7 +31,7 @@ const unlikeBlog = () => {
 </script>
 
 <template>
-    <CustomerAppLayout title="Blog Görüntüle">
+    <AppLayout title="Blog Görüntüle">
         <div class="container mx-auto p-4">
             <h1 class="text-3xl font-bold mb-4">Kategori Detayı</h1>
             <ul class="list-disc mb-4">
@@ -58,5 +58,5 @@ const unlikeBlog = () => {
             Geri
             </Link>
         </div>
-    </CustomerAppLayout>
+    </AppLayout>
 </template>
