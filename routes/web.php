@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\AdminBlogController;
 use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\CustomerBlogController;
+use App\Http\Controllers\CustomerCategoryController;
 use App\Http\Controllers\LikeController;
 
 /*
@@ -34,6 +35,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     })->name('dashboard');
     Route::get('/customer-blogs/{blog}', [CustomerBlogController::class, 'show'])->name('customer-blogs.show');
     Route::get('/customer-blogs', [CustomerBlogController::class, 'index'])->name('customer-blogs.index');
+    Route::get('/customer-categories/{category}', [CustomerCategoryController::class, 'show'])->name('customer-categories.show');
+    Route::get('/customer-categories', [CustomerCategoryController::class, 'index'])->name('customer-categories.index');
 
 
     Route::post('/blogs/{blog}/like', [LikeController::class, 'like'])->name('like');
