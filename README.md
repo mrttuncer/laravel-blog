@@ -1,7 +1,7 @@
 
 # Laravel Blog Uygulaması
 
-Bu proje, blogların listelendiği bir uygulamadır. Admin kullanıcıları CRUD işlemlerini gerçekleştirebilirken, diğer kullanıcılar sadece blogları görüntüleyebilir ve beğenebilir. Ayrıca, admin kullanıcıları, diğer kullanıcıların rollerini admin veya customer olarak güncelleyebilir.
+Bu proje, blogların listelendiği bir uygulamadır. Admin kullanıcıları CRUD işlemlerini gerçekleştirebilirken, diğer kullanıcılar sadece blogları görüntüleyebilir. Ekstra olarak kullanıcıların blogları beğenme fonksiyonu mevcut. Ayrıca, admin kullanıcıları, diğer kullanıcıların rollerini admin veya customer olarak güncelleyebilir.
 Bir blogun birden fazlası kategorisi olabilir.
 
 ## Başlangıç
