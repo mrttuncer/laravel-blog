@@ -1,6 +1,7 @@
 <script setup>
 import { useForm, Link } from '@inertiajs/vue3';
 import AppLayout from '@/Layouts/AppLayout.vue';
+import InputError from '@/Components/InputError.vue';
 
 const props = defineProps({
     category: Array,
@@ -27,6 +28,7 @@ const updateCategory = () => {
                     <input v-model="form.name" type="text" id="name" name="name"
                         class="mt-1 p-2 border border-gray-300 rounded-md w-full" required>
                 </div>
+                <InputError class="mt-2" :message="form.errors.name" />
                 <div class="flex flex-row items-center justify-between">
                     <Link :href="route('categories.index')"
                         class="bg-red-400 hover:bg-red-700 text-white font-bold py-2 px-4 rounded inline-block mr-2">

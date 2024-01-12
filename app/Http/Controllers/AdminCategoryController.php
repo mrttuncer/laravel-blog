@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -25,11 +26,8 @@ class AdminCategoryController extends Controller
         return inertia('Admin/Categories/Show', compact('category'));
     }
 
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:categories,name',
-        ]);
 
         Category::create([
             'name' => $request->name,
@@ -44,11 +42,8 @@ class AdminCategoryController extends Controller
     }
 
 
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $request->validate([
-            'name' => 'required|string|max:255|unique:categories,name,' . $category->id,
-        ]);
 
         $category->update([
             'name' => $request->name,

@@ -2,6 +2,7 @@
 import { useForm, Link } from '@inertiajs/vue3';
 import { defineProps } from 'vue';
 import AppLayout from '@/Layouts/AppLayout.vue';
+import InputError from '@/Components/InputError.vue';
 
 const props = defineProps({
     blog: Object,
@@ -33,11 +34,13 @@ const updateBlog = () => {
                     <input v-model="form.title" type="text" id="title" name="title" required
                         class="mt-1 p-2 w-full border rounded-md">
                 </div>
+                <InputError class="mt-2" :message="form.errors.title" />
                 <div>
                     <label for="content">İçerik:</label>
                     <textarea v-model="form.content" id="content" name="content" rows="4" required
                         class="mt-1 p-2 w-full border rounded-md"></textarea>
                 </div>
+                <InputError class="mt-2" :message="form.errors.content" />
                 <div>
                     <label>Kategoriler:</label>
                     <div v-for="category in props.categories" :key="category.id" class="flex items-center space-x-2">
@@ -46,6 +49,7 @@ const updateBlog = () => {
                         <label :for="'category_' + category.id" class="text-sm">{{ category.name }}</label>
                     </div>
                 </div>
+                <InputError class="mt-2" :message="form.errors.category_ids" />
                 <div class="flex flex-row items-center justify-between">
                     <button type="submit" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-md">Güncelle</button>
                     <Link :href="route('blogs.index')" class="mt-4 bg-cyan-500 text-white px-4 py-2 rounded-md">

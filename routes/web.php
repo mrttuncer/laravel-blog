@@ -36,7 +36,7 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
     Route::get('/customer-blogs/{blog}', [CustomerBlogController::class, 'show'])->name('customer-blogs.show');
     Route::get('/customer-blogs', [CustomerBlogController::class, 'index'])->name('customer-blogs.index');
     Route::get('/customer-categories/{category}', [CustomerCategoryController::class, 'show'])->name('customer-categories.show');
-    Route::get('/customer-categories', [CustomerCategoryController::class, 'index'])->name('customer-categories.index');
+    Route::get('/customer-categories', [CustomerCategoryController::class, 'index'])->name('customer-categories .index');
 
 
     Route::post('/blogs/{blog}/like', [LikeController::class, 'like'])->name('like');
